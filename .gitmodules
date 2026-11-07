@@ -1,8 +1,8 @@
 [submodule "psxrecomp"]
 	path = psxrecomp
-	url = https://github.com/Ed1z19/psxrecomp.git
-	branch = master
+	url = https://github.com/Danidark12/psxrecomp.git
+	branch = ptbr
 [submodule "recomp-ui"]
 	path = recomp-ui
-	url = https://github.com/Ed1z19/recomp-ui.git
-	branch = master
+	url = https://github.com/Danidark12/recomp-ui.git
+	branch = ptbr

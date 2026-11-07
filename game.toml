@@ -78,3 +78,9 @@ required_disc_fps = [
 require_cue = true
 required_tracks = 1
 required_disc_fp = "a19abe70993cb076f0e2c691da56cdc43e979aff754fd6e70d98e60f33ab9fc4"
+
+# Local: one long FMV PGO training run (6 min). During it, open the anime
+# opening from the title menu by hand so the profile covers FMV playback.
+[pgo]
+train_secs = 360
+train_runs = 1

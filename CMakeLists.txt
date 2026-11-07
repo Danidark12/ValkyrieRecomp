@@ -22,6 +22,30 @@ project(ValkyrieRecomp LANGUAGES C CXX)
 # endif()
 set(PSX_SETUP_WIZARD ON CACHE BOOL
     "Advertise first-run setup wizard + Generate & rebuild in recomp-ui" FORCE)
+# --- Local patch: Clang PGO wiring ----------------------------------------
+# psxrecomp_cli.py passes -DPSX_PGO=generate|use for "Optimize FMV playback",
+# but nothing consumed it, so the "instrumented" build wrote no profile.
+set(PSX_PGO "" CACHE STRING "Clang PGO mode: empty, generate or use")
+if(PSX_PGO STREQUAL "generate")
+    message(STATUS "PGO: instrumented build (-fprofile-instr-generate)")
+    add_compile_options(-fprofile-instr-generate)
+    add_link_options(-fprofile-instr-generate)
+elseif(PSX_PGO STREQUAL "use")
+    set(_PSX_PGO_PROFDATA "${CMAKE_BINARY_DIR}/pgo/default.profdata")
+    if(EXISTS "${_PSX_PGO_PROFDATA}")
+        message(STATUS "PGO: optimizing with ${_PSX_PGO_PROFDATA}")
+        add_compile_options(
+            "-fprofile-instr-use=${_PSX_PGO_PROFDATA}"
+            -Wno-profile-instr-unprofiled
+            -Wno-profile-instr-out-of-date
+            -Wno-profile-instr-missing
+            -Wno-backend-plugin)
+        add_link_options("-fprofile-instr-use=${_PSX_PGO_PROFDATA}")
+    else()
+        message(WARNING "PGO: ${_PSX_PGO_PROFDATA} not found; building without profile")
+    endif()
+endif()
+
 include("${PSXRECOMP_ROOT}/runtime/runtime.cmake")
 
 psxrecomp_add_game_runtime(psx-runtime

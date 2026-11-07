@@ -12,6 +12,30 @@ built with [PSXRecomp](https://github.com/mstan/psxrecomp) and
 
 > **Status:** Work in progress / compatibility testing.
 
+## Esta versão (fork pt-BR)
+
+Este fork, mantido por [Danidark12](https://github.com/Danidark12), adiciona ao
+[ValkyrieRecomp original (Ed1z19)](https://github.com/Ed1z19/ValkyrieRecomp):
+
+- **Launcher em português do Brasil ou inglês**: botão **Language / Idioma** no
+  topo do launcher (o padrão é inglês). A escolha é salva em
+  `launcher_language.txt`, ao lado do executável.
+- **Aceita a versão USA original e Undubs com o mesmo tamanho do disco
+  original** (o hash pode ser diferente; o launcher avisa no log).
+- **"Otimizar reprodução de FMV" funcionando no Windows**: o projeto agora
+  liga o PGO de verdade na compilação (`-DPSX_PGO=generate|use`), e o treino
+  fecha o jogo do jeito certo. O treino dura 6 minutos numa rodada só: durante
+  ele, abra a abertura em anime pelo menu do jogo.
+- Botões e dicas que não cortam textos longos.
+
+Os submódulos apontam para os forks com as mudanças (branch `ptbr`):
+[Danidark12/psxrecomp](https://github.com/Danidark12/psxrecomp/tree/ptbr) e
+[Danidark12/recomp-ui](https://github.com/Danidark12/recomp-ui/tree/ptbr).
+
+Como no projeto original, **o jogo não está incluído**: cada pessoa usa os
+próprios discos, e o jogo é montado no PC dela pelo "Generate & rebuild".
+Projeto sem fins comerciais (o psxrecomp usa a licença PolyForm Noncommercial).
+
 ## Features
 
 - Native Windows executable
