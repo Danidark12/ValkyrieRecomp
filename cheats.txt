@@ -1,0 +1,139 @@
+# Cheats do Valkyrie Profile (USA / Undub) - formato GameShark / CodeBreaker
+# Valkyrie Profile (USA / Undub) cheats - GameShark / CodeBreaker format
+#
+# [x] = ligado/on   [ ] = desligado/off
+# Nome em português | Name in English
+# > Descrição | Description
+# Dá para ligar e desligar na aba Cheats do launcher ou no jogo (F5 ou Select+L3).
+# You can toggle them in the launcher Cheats tab or in game (F5 or Select+L3).
+#
+# Fontes / sources: almarsguides.com (Valkyrie Profile CodeBreaker e Action Replay)
+# Códigos marcados EXPERIMENTAL alteram o código do jogo; no recomp o jogo é
+# código nativo, então eles podem não ter efeito. Codes marked EXPERIMENTAL
+# patch game code; the recomp runs native code, so they may have no effect.
+
+[ ] Tempo parado: os períodos não passam | Time stop: periods never pass
+> Mantém o contador de períodos do capítulo em 0. ATENÇÃO: o capítulo nunca acaba enquanto estiver ligado; desligue para a história avançar. | Keeps the chapter period counter at 0. WARNING: the chapter never ends while this is on; turn it off to let the story advance.
+301E5C41 0000
+
+[ ] Voltar os períodos a 0 (segure L1+R1) | Reset periods to 0 (hold L1+R1)
+> Segurando L1+R1, o contador de períodos do capítulo volta para 0. Bom para ganhar tempo sem travar a história. | Holding L1+R1 resets the chapter period counter to 0. Good for buying time without freezing the story.
+D002B6A0 000C
+301E5C41 0000
+
+[ ] Tempo infinito no Castelo de Brahms | Unlimited time (Brahms Castle)
+801E5C4C 3B03
+
+[ ] Relógio de jogo sempre 00:00:00 | Play time always 00:00:00
+801F5F84 0000
+801F5F86 0000
+
+[ ] Pontos de Materialização máximos | Max Materialize Points
+801F5F80 FFFF
+801F5F82 7FFF
+
+[ ] Pontos de Avaliação máximos (9999) | Max Evaluation Points (9999)
+801F6264 270F
+
+[ ] Salvar em qualquer lugar | Save anywhere
+301F6274 0011
+
+[ ] Salvar e mandar itens divinos em qualquer lugar | Save and send divine items anywhere
+E007FD74 0000
+801F6274 0001
+
+[ ] HP infinito (posição 1) | Unlimited HP (position 1)
+D00EDD70 FE9C
+800EDD74 E0FF
+D00EDD70 FE9C
+800EDD76 05F5
+
+[ ] HP infinito (posição 2) | Unlimited HP (position 2)
+D00EE42C 09AC
+800EE430 E0FF
+D00EE42C 09AC
+800EE432 05F5
+
+[ ] HP infinito (posição 3) | Unlimited HP (position 3)
+D00EEAE8 0074
+800EEAEC E0FF
+D00EEAE8 0074
+800EEAEE 05F5
+
+[ ] HP infinito (posição 4) | Unlimited HP (position 4)
+D00EF1A4 0160
+800EF1A8 E0FF
+D00EF1A4 0160
+800EF1AA 05F5
+
+[ ] Sem batalhas aleatórias (R1+Cima liga, R1+Baixo desliga) | No random encounters (R1+Up on, R1+Down off)
+> Nas dungeons. Com o cheat ligado, R1+Cima desativa os encontros e R1+Baixo volta ao normal. | In dungeons. With the cheat on, R1+Up disables encounters and R1+Down restores them.
+D002B6A0 1008
+3007F264 0008
+D002B6A0 4008
+3007F264 0000
+
+[ ] Levitar nas dungeons (segure Círculo) | Levitate in dungeons (hold Circle)
+D002B6A0 0020
+301E77A9 00F7
+D002B6A0 0020
+801E77AA FFFF
+
+[ ] Barra de ataque especial cheia (aperte L2) | Max special attack gauge (press L2)
+D002B6A0 0001
+300DB8FB 0064
+
+[ ] Proteção contra status anormais no combate | Protection from abnormal status in battle
+D0046A5C 0631
+300EDE4D 0062
+D0046A5C 0631
+300EE509 0062
+D0046A5C 0631
+300EEBC5 0062
+D0046A5C 0631
+300EF281 0062
+
+[ ] EXPERIMENTAL: CT sempre 0 no combate | EXPERIMENTAL: Charge Turn (CT) always 0 in battle
+D009F524 059A
+3009F526 0040
+D00ED806 0000
+300EDD9A 0000
+D00EDEC2 0000
+300EE456 0000
+D00EE57E 0000
+300EEB12 0000
+D00EEC3A 0000
+300EF1CE 0000
+
+[ ] Coleção de vozes 100% | Voice Collection 100%
+50004D02 0000
+801F6EE0 FFFF
+
+[ ] EXPERIMENTAL: Avaliação nunca diminui | EXPERIMENTAL: Evaluation never decreases
+D003ED8A A443
+8003ED8A 2400
+
+[ ] EXPERIMENTAL: CP infinito (todos) | EXPERIMENTAL: Unlimited CP (all characters)
+D005C71E A6A2
+8005C71E 2400
+
+[ ] EXPERIMENTAL: MP infinito | EXPERIMENTAL: Unlimited MP
+D005AFDE ACE2
+8005AFDE 2400
+
+[ ] EXPERIMENTAL: EXP nunca diminui | EXPERIMENTAL: EXP never decreases
+D005ECCE AC22
+8005ECCE 2400
+
+[ ] EXPERIMENTAL: Itens infinitos no combate | EXPERIMENTAL: Infinite item usage in battle
+D005A7BC FFFF
+8005A7BC 0000
+
+[ ] EXPERIMENTAL: Cristal não racha ao pular | EXPERIMENTAL: Crystal doesn't crack when jumped into
+D0030BEC 008B
+80030BEC 0000
+D0030BEC 0000
+80030BEE 0000
+
+[ ] EXPERIMENTAL: Abrir o Seraphic Gate (menu principal) | EXPERIMENTAL: Open Seraphic Gate (main menu)
+8005E422 0011
