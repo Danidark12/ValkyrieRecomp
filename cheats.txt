@@ -4,8 +4,8 @@
 # [x] = ligado/on   [ ] = desligado/off
 # Nome em português | Name in English
 # > Descrição | Description
-# Dá para ligar e desligar na aba Cheats do launcher ou no jogo (F5 ou Select+L3).
-# You can toggle them in the launcher Cheats tab or in game (F5 or Select+L3).
+# Dá para ligar e desligar na aba Cheats do launcher ou no jogo (F4 ou Select+Quadrado).
+# You can toggle them in the launcher Cheats tab or in game (F4 or Select+Square).
 #
 # Fontes / sources: almarsguides.com (Valkyrie Profile CodeBreaker e Action Replay)
 # Códigos marcados EXPERIMENTAL alteram o código do jogo; no recomp o jogo é
