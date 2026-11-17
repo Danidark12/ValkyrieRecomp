@@ -88,3 +88,17 @@ if(EXISTS "${_VALKYRIE_COVER}")
         COMMENT "Staging Valkyrie Profile cover"
         VERBATIM)
 endif()
+
+# Sample game picture (Lenneth at a save point) shown inside the frame
+# previews of the launcher Mods page and the in-game F4 menu.
+set(_VALKYRIE_FRAME_SAMPLE "${CMAKE_CURRENT_SOURCE_DIR}/assets/frame_preview_sample.png")
+if(EXISTS "${_VALKYRIE_FRAME_SAMPLE}")
+    add_custom_command(TARGET psx-runtime POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E make_directory
+            "$<TARGET_FILE_DIR:psx-runtime>/assets"
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different
+            "${_VALKYRIE_FRAME_SAMPLE}"
+            "$<TARGET_FILE_DIR:psx-runtime>/assets/frame_preview_sample.png"
+        COMMENT "Staging frame preview sample"
+        VERBATIM)
+endif()
