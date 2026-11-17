@@ -87,6 +87,25 @@ address  = "0x8003BA98"
 expected = "0x0062182A"
 result   = 1
 
+# The walked grid window itself comes from unprojecting a 320-wide screen
+# rect (map struct +0x1E4 x0, +0x1E8 width) in func 0x800398D4. Widen that
+# rect as it is read so the revealed sides get ground (black wedges near the
+# horizon otherwise, worst at 21:9).
+[[widescreen.cull.extent]]
+address  = "0x8003993C"
+expected = "0x860201E4"
+edge     = "left"
+
+[[widescreen.cull.extent]]
+address  = "0x8003994C"
+expected = "0x860201E4"
+edge     = "left"
+
+[[widescreen.cull.extent]]
+address  = "0x80039950"
+expected = "0x860301E8"
+edge     = "width"
+
 [controller]
 default_mode = "digital"
 
