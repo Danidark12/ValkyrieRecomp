@@ -64,6 +64,29 @@ nw_backdrop = false
 auto_backdrop = true
 auto_screen_x = true
 
+# World map: terrain chunks are picked by a view box sized for 4:3. While
+# widescreen shows extra world, keep every chunk in the walked grid window
+# (the per-quad screen tests still reject what is off-screen).
+[[widescreen.cull.keep]]
+address  = "0x8003BA50"
+expected = "0x0043102A"
+result   = 1
+
+[[widescreen.cull.keep]]
+address  = "0x8003BA68"
+expected = "0x0062182A"
+result   = 1
+
+[[widescreen.cull.keep]]
+address  = "0x8003BA80"
+expected = "0x0043102A"
+result   = 1
+
+[[widescreen.cull.keep]]
+address  = "0x8003BA98"
+expected = "0x0062182A"
+result   = 1
+
 [controller]
 default_mode = "digital"
 

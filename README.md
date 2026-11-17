@@ -10,54 +10,93 @@ A native PC recompilation project for **Valkyrie Profile (PlayStation, USA)**,
 built with [PSXRecomp](https://github.com/mstan/psxrecomp) and
 [recomp-ui](https://github.com/mstan/recomp-ui).
 
+> **This fork is focused on running the Valkyrie Profile Undub** (the USA
+> release with the original Japanese voice acting). The original USA discs
+> work as well.
+>
 > **Status:** Work in progress / compatibility testing.
 
-## Esta versão (fork pt-BR)
+## About this fork
 
-Este fork, mantido por [Danidark12](https://github.com/Danidark12), adiciona ao
-[ValkyrieRecomp original (Ed1z19)](https://github.com/Ed1z19/ValkyrieRecomp):
+This fork, maintained by [Danidark12](https://github.com/Danidark12), builds on
+the [original ValkyrieRecomp (Ed1z19)](https://github.com/Ed1z19/ValkyrieRecomp).
+Its main goal is to play the **Undub** comfortably: the launcher accepts Undub
+images, the two discs are swapped for you, and most quality-of-life options can
+be changed without leaving the game.
 
-- **Launcher em português do Brasil ou inglês**: botão **Language / Idioma** no
-  topo do launcher (o padrão é inglês). A escolha é salva em
-  `launcher_language.txt`, ao lado do executável.
-- **Aceita a versão USA original e Undubs com o mesmo tamanho do disco
-  original** (o hash pode ser diferente; o launcher avisa no log).
-- **"Otimizar reprodução de FMV" funcionando no Windows**: o projeto agora
-  liga o PGO de verdade na compilação (`-DPSX_PGO=generate|use`), e o treino
-  fecha o jogo do jeito certo. O treino dura 6 minutos numa rodada só: durante
-  ele, abra a abertura em anime pelo menu do jogo.
-- Botões e dicas que não cortam textos longos.
-
-Os submódulos apontam para os forks com as mudanças (branch `ptbr`):
-[Danidark12/psxrecomp](https://github.com/Danidark12/psxrecomp/tree/ptbr) e
+The submodules point to the forks that carry the changes (branch `ptbr`):
+[Danidark12/psxrecomp](https://github.com/Danidark12/psxrecomp/tree/ptbr) and
 [Danidark12/recomp-ui](https://github.com/Danidark12/recomp-ui/tree/ptbr).
 
-Como no projeto original, **o jogo não está incluído**: cada pessoa usa os
-próprios discos, e o jogo é montado no PC dela pelo "Generate & rebuild".
-Projeto sem fins comerciais (o psxrecomp usa a licença PolyForm Noncommercial).
+As in the original project, **the game is not included**: you use your own
+discs, and the game is built on your PC by the launcher's "Generate & rebuild".
+Non-commercial project (psxrecomp uses the PolyForm Noncommercial license).
 
-## Features
+## Using the Undub
 
-- Native Windows executable
-- Multi-disc support for Disc 1 and Disc 2
-- 4:3 original aspect ratio and optional 16:9 widescreen
-- OpenGL and software rendering options
-- Controller support
-- Memory card support
-- Launcher-based disc selection
-- OpenBIOS support through PSXRecomp
+- Any Undub whose disc images are **the same size as the retail USA discs** is
+  accepted. Its hash differs from the retail one; the launcher only notes that
+  in its log. Plain `.bin` images can be selected directly; no `.cue` is
+  needed.
+- **Disc paths are remembered** (`discs.cfg`, next to the executable), so you
+  pick them once. When you choose Disc 1, the launcher also finds Disc 2 by
+  itself if it sits next to it with the usual "(Disc 2)" name.
+- **Automatic disc swap:** when the game asks for the other disc, the runtime
+  opens the virtual lid and inserts it. You can also swap by hand with
+  **CHANGE DISC** in the in-game options menu (F4).
+- Disc 2 saves can be loaded from the title screen of Disc 1; the swap to
+  Disc 2 happens automatically.
 
-## Supported game
+## What this fork adds
 
-| | |
-|---|---|
-| Game | Valkyrie Profile |
-| Region | USA / NTSC-U |
-| Players | 1 |
-| Disc 1 serial | SLUS-01156 |
-| Disc 2 serial | SLUS-01179 |
-| Original publisher | Enix |
-| Original release | 2000 |
+**Launcher**
+- English, Portuguese (Brazil) and Spanish (**Language** button at the top);
+  the choice is saved in `launcher_language.txt`. Mod names and cheat
+  descriptions are translated too.
+- "Optimize FMV playback" (PGO) actually works on Windows.
+- The Shortcuts page lists every hotkey, and shows/edits the same keys the
+  Settings page uses.
+
+**In-game options menu (F4 / Select+Square)**
+- Aspect ratio: 4:3, 16:9 or 21:9, without stretching the image.
+- Texture filtering, smoothing, and screen filters (OpenGL): LCD grid, LCD RGB,
+  CRT and soft CRT.
+- Scanlines on/off, separate from the screen filters (also F6).
+- **FRAME**: cycles the bezel artwork through your own images (see
+  [`molduras/README.txt`](molduras/README.txt)), then off. Needs the
+  *Bezel Artwork* mod.
+- Change disc, and return to the launcher.
+
+**Cheats** (launcher Cheats tab, or in game with F5 / Select+L3), listed in
+[`cheats.txt`](cheats.txt) with names and descriptions in the three languages.
+
+**Hotkeys**
+
+| Action | Keyboard | Controller |
+|---|---|---|
+| Quick save / quick load | F2 / F3 | Select+R2 / Select+L2 |
+| Save states menu | F7 | |
+| Fast-forward (hold) | Tab | Select+L1 |
+| Fast-forward speed down / up | F10 / F11 | Select+Left / Select+Right |
+| Options menu | F4 | Select+Square |
+| Cheats menu | F5 | Select+L3 |
+| Scanlines | F6 | |
+
+**Fixes**
+- Battle freeze fixed (GPU drawing is now paced like the real rasteriser).
+- No more black wedges on the world map with *perspective texturing* on, or
+  in 16:9 / 21:9 (terrain chunks next to the 4:3 view are kept).
+- The bezel frame stays visible on blank screens (BIOS intro, loads, battle
+  transitions), and FMVs are centered inside it.
+- A hitch recorder writes the slowest frames of each session to
+  `psx_last_run_report.json` when the game closes, to track down stutters that
+  only happen on some PCs.
+
+### Rebuilding after source changes
+
+[`scripts/rebuild.cmd`](scripts/rebuild.cmd) rebuilds only what changed and
+starts the launcher. If the launcher's own rebuild pruned the build files, it
+re-runs the full configure first.
 
 ## AI Usage Notice
 
@@ -92,8 +131,8 @@ git submodule update --init --recursive
 
 ## Disc setup
 
-The project expects the two USA discs at these relative locations when building
-or testing locally:
+The launcher lets you pick the discs anywhere on your PC (Undub or USA). For
+command-line builds and local testing the project expects them here:
 
 ```text
 disc/Disc1/Valkyrie Profile (USA) (Disc 1).cue
@@ -123,14 +162,20 @@ PowerShell 7 where required by the project scripts.
 The launcher currently offers:
 
 - **4:3** — original aspect ratio
-- **16:9** — optional widescreen mode
+- **16:9** and **21:9** — widescreen modes (also selectable in game, F4)
 
 ## Known issues
 
 - Compatibility and performance testing across different PCs is still ongoing.
 - Some framework/runtime behavior may differ depending on hardware and drivers.
-- Mid-session disc swapping may still depend on the current PSXRecomp runtime
-  implementation; disc selection between runs is supported by the launcher.
+- Loading a save sometimes fails with "An error occurred while accessing
+  MEMORY CARD data". It is a timing race between the game and the memory card
+  emulation (it happens with OpenBIOS and with the Sony BIOS). Press X and load
+  again; the next attempt usually works.
+- Some players see short stutters when flipping cards in the Voice Collection,
+  near save crystals and on stairs. Not reproduced yet; the hitch recorder is
+  there to find it.
+- The world map runs at 30 fps, like the original game.
 
 ## Releases
 
@@ -140,9 +185,11 @@ source tree.
 
 ## Framework
 
-This project uses the following repositories as Git submodules:
+This project uses the following repositories as Git submodules (forks of
+[mstan/psxrecomp](https://github.com/mstan/psxrecomp) and
+[mstan/recomp-ui](https://github.com/mstan/recomp-ui)):
 
-- [mstan/psxrecomp](https://github.com/mstan/psxrecomp)
-- [mstan/recomp-ui](https://github.com/mstan/recomp-ui)
+- [Danidark12/psxrecomp](https://github.com/Danidark12/psxrecomp/tree/ptbr) (branch `ptbr`)
+- [Danidark12/recomp-ui](https://github.com/Danidark12/recomp-ui/tree/ptbr) (branch `ptbr`)
 
 Keep the pinned submodule revisions when creating reproducible releases.
