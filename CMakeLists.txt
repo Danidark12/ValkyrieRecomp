@@ -89,7 +89,7 @@ if(EXISTS "${_VALKYRIE_COVER}")
         VERBATIM)
 endif()
 
-# Sample game picture (Lenneth at a save point) shown inside the frame
+# Sample game picture (Lenneth on Asgard Hill) shown inside the frame
 # previews of the launcher Mods page and the in-game F4 menu.
 set(_VALKYRIE_FRAME_SAMPLE "${CMAKE_CURRENT_SOURCE_DIR}/assets/frame_preview_sample.png")
 if(EXISTS "${_VALKYRIE_FRAME_SAMPLE}")
