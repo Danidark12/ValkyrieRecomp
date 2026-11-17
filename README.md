@@ -6,6 +6,10 @@
 
 ![Gameplay](docs/preview.png)
 
+<p align="center">
+  <a href="https://recomplauncher.com"><picture><source media="(prefers-color-scheme: dark)" srcset="https://recomplauncher.com/assets/press/launcher/badge-light.svg"><img src="https://recomplauncher.com/assets/press/launcher/badge-dark.svg" alt="Get it on RecompLauncher" height="48"></picture></a>
+</p>
+
 A native PC recompilation project for **Valkyrie Profile (PlayStation, USA)**,
 built with [PSXRecomp](https://github.com/mstan/psxrecomp) and
 [recomp-ui](https://github.com/mstan/recomp-ui).
@@ -15,6 +19,16 @@ built with [PSXRecomp](https://github.com/mstan/psxrecomp) and
 > work as well.
 >
 > **Status:** Work in progress / compatibility testing.
+
+## How to play
+
+1. Download the latest zip from the [Releases](https://github.com/Danidark12/ValkyrieRecomp/releases)
+   page and extract it (or install it with RecompLauncher).
+2. Open `ValkyrieRecomp.exe` and pick your Disc 1 (Undub or USA). Disc 2 is
+   found automatically when it sits next to it with "(Disc 2)" in its name.
+3. Run **Generate & rebuild** once: the game is built on your PC from your own
+   discs (a few minutes). Later starts go straight to the launcher.
+4. Press **Play**. In game, **F4** opens the options menu.
 
 ## About this fork
 

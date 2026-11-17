@@ -1,0 +1,16 @@
+{
+  "$schema": "https://recomplauncher.com/schema/recomplauncher.json",
+  "format": 1,
+  "name": "ValkyrieRecomp (Undub edition)",
+  "repo": "Danidark12/ValkyrieRecomp",
+  "game": {
+    "kind": "iso",
+    "label": "Valkyrie Profile Disc 1 (Undub or USA, SLUS-01156): the .cue, or the .bin if you have no .cue. Keep Disc 2 in the same folder with \"(Disc 2)\" in its name and it is picked up automatically.",
+    "check": { "iso9660": "SLUS_011.56" }
+  },
+  "start": {
+    "program": ["ValkyrieRecomp.exe"],
+    "args": ["--disc", "{game}"]
+  },
+  "saves": ["{install}/saves"]
+}

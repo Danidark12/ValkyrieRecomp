@@ -75,6 +75,7 @@ starvation_dump.jsonl
 
 # Diagnostic dumps (root-level) — keep catalog / probe trackable
 /*.json
+!/recomplauncher.json
 /*.bmp
 /*.png
 !/catalog_identity.json

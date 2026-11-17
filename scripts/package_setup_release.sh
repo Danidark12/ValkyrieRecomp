@@ -89,6 +89,7 @@ exec bash "${PACKAGER}" \
   --project-file codegen_setup.c \
   --project-file codegen_setup.h \
   --project-file README.md \
+  --project-file recomplauncher.json \
   --project-dir seeds \
   --project-dir launcher_assets \
   "${EXTRA_PROJECT[@]}"
